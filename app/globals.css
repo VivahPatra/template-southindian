@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+/* ── Custom cursor ── */
+body { cursor: none; }
+* { cursor: none !important; }
+
+/* ── Tailwind v4 theme tokens ── */
+@theme inline {
+  --color-theme-bg:      var(--color-bg);
+  --color-theme-surface: var(--color-surface);
+  --color-theme-accent:  var(--color-accent);
+  --color-theme-text:    var(--color-text);
+  --color-theme-muted:   var(--color-muted);
+  --color-theme-border:  var(--color-border);
+
+  --font-display: var(--font-cormorant), Georgia, serif;
+  --font-serif:   var(--font-playfair), Georgia, serif;
+  --font-sans:    var(--font-inter), system-ui, sans-serif;
+}
+
+/* ── South Indian Theme: Forest Green + Kasavu Gold ── */
+:root {
+  --color-bg:          #080e06;
+  --color-surface:     #0e1c0c;
+  --color-surface2:    #1a1208;
+  --color-accent:      #c9a84c;
+  --color-accent-dim:  rgba(201, 168, 76, 0.28);
+  --color-accent2:     #e8c87a;
+  --color-accent3:     #7a1a2a;
+  --color-text:        #f5f0e0;
+  --color-muted:       #8a9a7a;
+  --color-border:      #1e3018;
+  --color-glow:        rgba(201, 168, 76, 0.3);
+  --color-glow-strong: rgba(201, 168, 76, 0.6);
+  --color-water:       #1a3a5c;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-bg);
+}
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+}
+
+::selection { background-color: var(--color-accent2); color: var(--color-bg); }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-accent-dim); border-radius: 3px; }
+
+/* ── Wave animation ── */
+@keyframes wave1 {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes wave2 {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+@keyframes wave3 {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.33%); }
+}
+
+/* ── Coconut tree sway ── */
+@keyframes treeSway {
+  0%, 100% { transform: rotate(-1.5deg); }
+  50%       { transform: rotate(1.5deg); }
+}
+@keyframes frondWave {
+  0%, 100% { transform: rotate(-4deg); }
+  50%       { transform: rotate(4deg); }
+}
+
+/* ── Boat bob + sail ── */
+@keyframes boatBob {
+  0%, 100% { transform: translateY(0px) rotate(-0.8deg); }
+  50%       { transform: translateY(-5px) rotate(0.8deg); }
+}
+@keyframes boatSailSection {
+  0%   { transform: translateX(-140px); }
+  100% { transform: translateX(calc(100vw + 140px)); }
+}
+@keyframes lanternGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px #f59e0b) drop-shadow(0 0 14px #f97316) brightness(1.0);
+  }
+  30% {
+    filter: drop-shadow(0 0 12px #fbbf24) drop-shadow(0 0 26px #f59e0b) brightness(1.18);
+  }
+  65% {
+    filter: drop-shadow(0 0 8px #f97316) drop-shadow(0 0 18px #ea580c) brightness(1.06);
+  }
+}
+.lantern-glow {
+  animation: lanternGlow 2.4s ease-in-out infinite;
+}
+
+@keyframes leafSway {
+  0%, 100% { transform: rotate(-8deg) translateY(0px); }
+  40%       { transform: rotate(-4deg) translateY(-8px); }
+  70%       { transform: rotate(-11deg) translateY(4px); }
+}
+.leaf-sway {
+  animation: leafSway 4s ease-in-out infinite;
+  transform-origin: top right;
+}
+
+/* ── Lamp flicker ── */
+@keyframes lampFlicker {
+  0%, 100% { opacity: 0.9; transform: scaleY(1); }
+  30%       { opacity: 0.7; transform: scaleY(0.95); }
+  70%       { opacity: 1; transform: scaleY(1.05); }
+}
+.lamp-flicker { animation: lampFlicker 2s ease-in-out infinite; }
+
+/* ── Gold shimmer ── */
+@keyframes shimmer {
+  0%   { background-position: -400% center; }
+  100% { background-position: 400% center; }
+}
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    var(--color-text) 0%,
+    var(--color-accent) 35%,
+    #ffe8a0 50%,
+    var(--color-accent) 65%,
+    var(--color-text) 100%
+  );
+  background-size: 400% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+/* ── Glow pulse ── */
+@keyframes glowPulse {
+  0%, 100% { text-shadow: 0 0 8px var(--color-accent-dim); opacity: 0.7; }
+  50%       { text-shadow: 0 0 20px var(--color-accent), 0 0 40px var(--color-glow); opacity: 1; }
+}
+.glow-pulse { animation: glowPulse 3s ease-in-out infinite; }
+
+/* ── Float ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+.float-anim { animation: float 4s ease-in-out infinite; }
+
+/* ── Kolam dot pattern ── */
+.kolam-bg {
+  background-image: radial-gradient(circle, rgba(201,168,76,0.2) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* ── Kasavu border ── */
+.kasavu-border {
+  border: 2px solid var(--color-accent);
+  position: relative;
+}
+.kasavu-border::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border: 1px solid rgba(201,168,76,0.4);
+  pointer-events: none;
+}
+
+/* ── Spin for dashed rings ── */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Falling petals / elements ── */
+@keyframes petalDrop {
+  0%   { transform: translateY(-20px) rotate(0deg); opacity: 0; }
+  20%  { opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+/* ── Ganesha glow ── */
+@keyframes ganeshGlow {
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(201,168,76,0.8)) drop-shadow(0 0 20px rgba(201,168,76,0.35)); }
+  50%       { filter: drop-shadow(0 0 18px rgba(255,210,80,1)) drop-shadow(0 0 44px rgba(201,168,76,0.7)); }
+}
+.ganesha-glow {
+  animation: ganeshGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes ganeshBackdrop {
+  0%, 100% { opacity: 0.55; transform: scale(1.3); }
+  50%       { opacity: 1;    transform: scale(1.7); }
+}
+.ganesha-backdrop {
+  animation: ganeshBackdrop 2.5s ease-in-out infinite;
+}
