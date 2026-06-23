@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
-import { weddingData } from '@/data/wedding-data'
+import { useWeddingData } from '@/context/WeddingDataContext'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import OrnateFrame from '@/components/ui/OrnateFrame'
 import Divider from '@/components/ui/Divider'
@@ -26,6 +26,7 @@ function KolambCorner({ flip = false, flipY = false }: { flip?: boolean; flipY?:
 const GREEN_SEC = 'linear-gradient(160deg, #0a1a08 0%, #0e2210 50%, #0c1e0c 100%)'
 
 export default function InvitationSection() {
+  const weddingData = useWeddingData()
   const dateStr = weddingData.weddingDate.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })
 
   return (

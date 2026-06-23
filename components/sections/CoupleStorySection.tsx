@@ -1,7 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { weddingData } from '@/data/wedding-data'
+import { useWeddingData } from '@/context/WeddingDataContext'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import Divider from '@/components/ui/Divider'
 import DevAssetLabel from '@/components/ui/DevAssetLabel'
@@ -10,6 +10,7 @@ import { fadeUp, slideLeft, slideRight } from '@/lib/animations'
 const EARTH_SEC = 'linear-gradient(160deg, #1a1408 0%, #241a0c 50%, #1e1408 100%)'
 
 export default function CoupleStorySection() {
+  const weddingData = useWeddingData()
   return (
     <SectionWrapper id="story" className="py-24" style={{ background: EARTH_SEC }}>
       <div className="max-w-4xl mx-auto">

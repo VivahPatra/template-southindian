@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
-import { weddingData } from '@/data/wedding-data'
+import { useWeddingData } from '@/context/WeddingDataContext'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import Divider from '@/components/ui/Divider'
 import Lightbox from '@/components/ui/Lightbox'
@@ -14,6 +14,7 @@ const GREEN_SEC = 'linear-gradient(160deg, #0a1a08 0%, #0e2210 50%, #0c1e0c 100%
 const HEIGHTS = [240, 175, 220, 280, 160, 205]
 
 export default function GallerySection() {
+  const weddingData = useWeddingData()
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
   const images = weddingData.galleryImages
   const close = () => setLightboxIndex(null)

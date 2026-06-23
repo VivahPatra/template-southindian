@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
-import { weddingData } from '@/data/wedding-data'
+import { useWeddingData } from '@/context/WeddingDataContext'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import { staggerFast, fadeUp } from '@/lib/animations'
 import { WeddingEvent } from '@/types/wedding.types'
@@ -91,6 +91,7 @@ function EventNode({ event, isHero = false, delay = 0 }: { event: WeddingEvent; 
 }
 
 export default function EventsSection() {
+  const weddingData = useWeddingData()
   const events = weddingData.events
   const half = Math.ceil(events.length / 2)
   const row1 = events.slice(0, half)

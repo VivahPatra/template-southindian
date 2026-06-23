@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
-import { weddingData } from '@/data/wedding-data'
+import { useWeddingData } from '@/context/WeddingDataContext'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import Divider from '@/components/ui/Divider'
 import InfoCard from '@/components/ui/InfoCard'
@@ -9,6 +9,7 @@ import { staggerFast, fadeUp } from '@/lib/animations'
 const GREEN_SEC = 'linear-gradient(160deg, #0a1a08 0%, #0e2210 50%, #0c1e0c 100%)'
 
 export default function InfoSection() {
+  const weddingData = useWeddingData()
   return (
     <SectionWrapper id="info" className="py-24" style={{ background: GREEN_SEC }}>
       <div className="max-w-5xl mx-auto">

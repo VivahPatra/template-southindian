@@ -1,11 +1,12 @@
 'use client'
 import { motion } from 'framer-motion'
 import { Link2, ExternalLink } from 'lucide-react'
-import { weddingData } from '@/data/wedding-data'
+import { useWeddingData } from '@/context/WeddingDataContext'
 import Divider from '@/components/ui/Divider'
 import { fadeUp, staggerContainer } from '@/lib/animations'
 
 export default function FooterSection() {
+  const weddingData = useWeddingData()
   const { brideName, groomName, hashtag, socialLinks } = weddingData
   return (
     <footer className="py-16 px-4 text-center"

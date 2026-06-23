@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
-import { weddingData } from '@/data/wedding-data'
+import { useWeddingData } from '@/context/WeddingDataContext'
 import { useCountdown } from '@/lib/useCountdown'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import Divider from '@/components/ui/Divider'
@@ -25,6 +25,7 @@ function CountUnit({ value, label }: { value: number; label: string }) {
 }
 
 export default function CountdownSection() {
+  const weddingData = useWeddingData()
   const { days, hours, minutes, seconds, isPast } = useCountdown(weddingData.weddingDate)
   return (
     <SectionWrapper id="countdown" className="py-24" style={{ background: EARTH_SEC }}>

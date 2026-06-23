@@ -1,12 +1,13 @@
 'use client'
 import { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { weddingData } from '@/data/wedding-data'
+import { useWeddingData } from '@/context/WeddingDataContext'
 import { fadeUp, staggerContainer } from '@/lib/animations'
 import OrnateFrame from '@/components/ui/OrnateFrame'
 import { formatShortDate } from '@/lib/utils'
 
 export default function HeroSection() {
+  const weddingData = useWeddingData()
   const outerRef = useRef<HTMLDivElement>(null)
   const [curtainOpen, setCurtainOpen] = useState(false)
 
