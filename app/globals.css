@@ -199,3 +199,13 @@ body {
 .ganesha-backdrop {
   animation: ganeshBackdrop 2.5s ease-in-out infinite;
 }
+
+/* Edit mode styles */
+.editable-highlight:hover {
+  border-bottom-color: rgba(201,168,76,0.9) !important;
+  background: rgba(201,168,76,0.08);
+}
+.editable-highlight:focus {
+  border-bottom-color: rgba(201,168,76,1) !important;
+  background: rgba(201,168,76,0.12);
+}

@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { WeddingDataProvider } from '@/context/WeddingDataContext'
+import { EditModeProvider } from '@/context/EditModeContext'
 import CustomCursor from '@/components/layout/CustomCursor'
 import LoadingScreen from '@/components/layout/LoadingScreen'
 import FloatingFABs from '@/components/layout/FloatingFABs'
@@ -26,6 +27,7 @@ export default function WeddingPage() {
 
   return (
     <WeddingDataProvider>
+    <EditModeProvider>
       <CustomCursor />
       <AnimatePresence>
         {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
@@ -66,6 +68,7 @@ export default function WeddingPage() {
           </div>
         </>
       )}
+    </EditModeProvider>
     </WeddingDataProvider>
   )
 }

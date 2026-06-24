@@ -2,22 +2,26 @@
 import { motion } from 'framer-motion'
 import { Link2, ExternalLink } from 'lucide-react'
 import { useWeddingData } from '@/context/WeddingDataContext'
+import { useEditMode } from '@/context/EditModeContext'
+import EditableText from '@/components/ui/EditableText'
 import Divider from '@/components/ui/Divider'
 import { fadeUp, staggerContainer } from '@/lib/animations'
 
 export default function FooterSection() {
   const weddingData = useWeddingData()
-  const { brideName, groomName, hashtag, socialLinks } = weddingData
+  const { isEditing, data: editData } = useEditMode()
+  const d = isEditing ? editData : weddingData
+  const { brideName, groomName, hashtag, socialLinks } = d
   return (
     <footer className="py-16 px-4 text-center"
       style={{ background: 'var(--color-surface)', borderTop: '1px solid var(--color-border)' }}>
       <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}
         className="max-w-xl mx-auto">
         <motion.h2 variants={fadeUp} className="font-display text-4xl mb-2" style={{ color: 'var(--color-text)' }}>
-          {groomName} &amp; {brideName}
+          <EditableText field="groomName">{groomName}</EditableText> &amp; <EditableText field="brideName">{brideName}</EditableText>
         </motion.h2>
         <motion.p variants={fadeUp} className="font-sans text-sm tracking-widest mb-6" style={{ color: 'var(--color-accent)' }}>
-          {hashtag}
+          <EditableText field="hashtag">{hashtag}</EditableText>
         </motion.p>
         <Divider />
         <motion.div variants={fadeUp} className="flex justify-center gap-5 mb-8">
@@ -37,8 +41,8 @@ export default function FooterSection() {
           )}
         </motion.div>
         <motion.p variants={fadeUp} className="font-sans text-xs leading-relaxed" style={{ color: 'var(--color-muted)' }}>
-          Made with ❤️ for {brideName} &amp; {groomName}
-          <br /><span className="opacity-50">© {new Date().getFullYear()} · {hashtag}</span>
+          Made with ❤️ for <EditableText field="brideName">{brideName}</EditableText> &amp; <EditableText field="groomName">{groomName}</EditableText>
+          <br /><span className="opacity-50">© {new Date().getFullYear()} · <EditableText field="hashtag">{hashtag}</EditableText></span>
         </motion.p>
       </motion.div>
     </footer>

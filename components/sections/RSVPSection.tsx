@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion'
 import { MessageCircle } from 'lucide-react'
 import { useWeddingData } from '@/context/WeddingDataContext'
+import { useEditMode } from '@/context/EditModeContext'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import Divider from '@/components/ui/Divider'
 import { fadeUp, scaleIn, staggerContainer } from '@/lib/animations'
@@ -10,7 +11,9 @@ const GREEN_SEC = 'linear-gradient(160deg, #0a1a08 0%, #0e2210 50%, #0c1e0c 100%
 
 export default function RSVPSection() {
   const weddingData = useWeddingData()
-  const { rsvp } = weddingData
+  const { isEditing, data: editData } = useEditMode()
+  const d = isEditing ? editData : weddingData
+  const { rsvp } = d
   const whatsappUrl = `https://wa.me/${rsvp.whatsappNumber}?text=${encodeURIComponent(rsvp.whatsappMessage)}`
 
   return (

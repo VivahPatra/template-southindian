@@ -1,6 +1,8 @@
 'use client'
 import { motion } from 'framer-motion'
 import { useWeddingData } from '@/context/WeddingDataContext'
+import { useEditMode } from '@/context/EditModeContext'
+import EditableText from '@/components/ui/EditableText'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import { staggerFast, fadeUp } from '@/lib/animations'
 import { WeddingEvent } from '@/types/wedding.types'
@@ -25,7 +27,7 @@ const EVENT_EMOJI: Record<string, string> = {
   reception:       '🌺',
 }
 
-function EventNode({ event, isHero = false, delay = 0 }: { event: WeddingEvent; isHero?: boolean; delay?: number }) {
+function EventNode({ event, isHero = false, delay = 0, eventIndex }: { event: WeddingEvent; isHero?: boolean; delay?: number; eventIndex: number }) {
   const color = event.color || FALLBACK_COLORS[event.id] || '#c9a84c'
   const emoji = EVENT_EMOJI[event.id] ?? '✦'
   const size = isHero ? 130 : 100
@@ -61,10 +63,10 @@ function EventNode({ event, isHero = false, delay = 0 }: { event: WeddingEvent; 
       </div>
       <div className="text-center mt-3">
         <p className="font-display tracking-wide" style={{ color: 'var(--color-text)', fontSize: isHero ? '1.2rem' : '0.95rem' }}>
-          {event.name}
+          <EditableText field="name" index={eventIndex} arrayField="events">{event.name}</EditableText>
         </p>
         <p className="font-sans text-xs tracking-widest mt-1" style={{ color: color, opacity: 0.7 }}>
-          {event.date.replace(', 2026', '')} · {event.time}
+          <EditableText field="date" index={eventIndex} arrayField="events">{event.date.replace(', 2026', '')}</EditableText> · <EditableText field="time" index={eventIndex} arrayField="events">{event.time}</EditableText>
         </p>
       </div>
       <div className="text-center mt-3 rounded-xl px-3 py-3" style={{
@@ -74,9 +76,9 @@ function EventNode({ event, isHero = false, delay = 0 }: { event: WeddingEvent; 
         boxShadow: `0 0 16px ${color}20`,
         backdropFilter: 'blur(4px)',
       }}>
-        <p className="font-serif text-sm" style={{ color: 'var(--color-text)', opacity: 0.85 }}>{event.venue}</p>
+        <p className="font-serif text-sm" style={{ color: 'var(--color-text)', opacity: 0.85 }}><EditableText field="venue" index={eventIndex} arrayField="events">{event.venue}</EditableText></p>
         <p className="font-sans text-xs mt-1" style={{ color: 'var(--color-muted)', opacity: 0.7 }}>
-          {event.venueAddress.split(',')[0]}
+          <EditableText field="venueAddress" index={eventIndex} arrayField="events">{event.venueAddress.split(',')[0]}</EditableText>
         </p>
         {event.venueMapLink && (
           <a href={event.venueMapLink} target="_blank" rel="noopener noreferrer"
@@ -92,7 +94,9 @@ function EventNode({ event, isHero = false, delay = 0 }: { event: WeddingEvent; 
 
 export default function EventsSection() {
   const weddingData = useWeddingData()
-  const events = weddingData.events
+  const { isEditing, data: editData } = useEditMode()
+  const d = isEditing ? editData : weddingData
+  const events = d.events
   const half = Math.ceil(events.length / 2)
   const row1 = events.slice(0, half)
   const row2 = events.slice(half)
@@ -151,11 +155,11 @@ export default function EventsSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-6 md:mb-0">
-          {row1.map((ev, i) => <EventNode key={ev.id} event={ev} delay={i * 0.1} />)}
+          {row1.map((ev, i) => <EventNode key={ev.id} event={ev} delay={i * 0.1} eventIndex={i} />)}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-8 md:mt-10">
           {row2.map((ev, i) => (
-            <EventNode key={ev.id} event={ev} isHero={ev.id === 'muhurtham'} delay={0.15 + i * 0.1} />
+            <EventNode key={ev.id} event={ev} isHero={ev.id === 'muhurtham'} delay={0.15 + i * 0.1} eventIndex={half + i} />
           ))}
         </div>
       </div>
