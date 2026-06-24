@@ -1,8 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
 import { useWeddingData } from '@/context/WeddingDataContext'
-import { useEditMode } from '@/context/EditModeContext'
-import EditableText from '@/components/ui/EditableText'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import OrnateFrame from '@/components/ui/OrnateFrame'
 import Divider from '@/components/ui/Divider'
@@ -29,9 +27,7 @@ const GREEN_SEC = 'linear-gradient(160deg, #0a1a08 0%, #0e2210 50%, #0c1e0c 100%
 
 export default function InvitationSection() {
   const weddingData = useWeddingData()
-  const { isEditing, data: editData } = useEditMode()
-  const d = isEditing ? editData : weddingData
-  const dateStr = d.weddingDate.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })
+  const dateStr = weddingData.weddingDate.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })
 
   return (
     <SectionWrapper id="invitation" className="py-28 relative overflow-hidden" style={{ background: GREEN_SEC }}>
@@ -97,21 +93,21 @@ export default function InvitationSection() {
               <div className="flex items-start justify-center gap-8 flex-wrap">
                 <div className="text-center">
                   <span className="font-display shimmer-text block" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)' }}>
-                    <EditableText field="groomName">{d.groomName}</EditableText>
+                    {weddingData.groomName}
                   </span>
-                  {d.groomParents && (
+                  {weddingData.groomParents && (
                     <p className="font-sans text-xs tracking-wide mt-1" style={{ color: 'var(--color-muted)', opacity: 0.7 }}>
-                      Son of <EditableText field="groomParents">{d.groomParents}</EditableText>
+                      Son of {weddingData.groomParents}
                     </p>
                   )}
                 </div>
                 <div className="text-center">
                   <span className="font-display shimmer-text block" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)' }}>
-                    <EditableText field="brideName">{d.brideName}</EditableText>
+                    {weddingData.brideName}
                   </span>
-                  {d.brideParents && (
+                  {weddingData.brideParents && (
                     <p className="font-sans text-xs tracking-wide mt-1" style={{ color: 'var(--color-muted)', opacity: 0.7 }}>
-                      Daughter of <EditableText field="brideParents">{d.brideParents}</EditableText>
+                      Daughter of {weddingData.brideParents}
                     </p>
                   )}
                 </div>

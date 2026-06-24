@@ -2,8 +2,6 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useWeddingData } from '@/context/WeddingDataContext'
-import { useEditMode } from '@/context/EditModeContext'
-import EditableText from '@/components/ui/EditableText'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import Divider from '@/components/ui/Divider'
 import DevAssetLabel from '@/components/ui/DevAssetLabel'
@@ -13,8 +11,6 @@ const EARTH_SEC = 'linear-gradient(160deg, #1a1408 0%, #241a0c 50%, #1e1408 100%
 
 export default function CoupleStorySection() {
   const weddingData = useWeddingData()
-  const { isEditing, data: editData } = useEditMode()
-  const d = isEditing ? editData : weddingData
   return (
     <SectionWrapper id="story" className="py-24" style={{ background: EARTH_SEC }}>
       <div className="max-w-4xl mx-auto">
@@ -34,7 +30,7 @@ export default function CoupleStorySection() {
             style={{ background: 'linear-gradient(to bottom, transparent, rgba(201,168,76,0.4) 10%, rgba(201,168,76,0.4) 90%, transparent)' }} />
 
           <div className="flex flex-col gap-16">
-            {d.coupleStory.map((item, i) => {
+            {weddingData.coupleStory.map((item, i) => {
               const isLeft = i % 2 === 0
               return (
                 <div key={i} className="relative">
@@ -87,15 +83,15 @@ export default function CoupleStorySection() {
                       viewport={{ once: true, margin: '-60px' }}
                     >
                       <p className="font-sans text-xs tracking-[0.35em] uppercase mb-2"
-                        style={{ color: 'var(--color-accent)', opacity: 0.7 }}><EditableText field="date" index={i} arrayField="coupleStory">{item.date}</EditableText></p>
+                        style={{ color: 'var(--color-accent)', opacity: 0.7 }}>{item.date}</p>
                       <h3 className="font-display text-3xl mb-4" style={{ color: 'var(--color-text)' }}>
-                        <EditableText field="title" index={i} arrayField="coupleStory">{item.title}</EditableText>
+                        {item.title}
                       </h3>
                       <div className={`h-px w-12 mb-4 ${isLeft ? '' : 'ml-auto'} mx-auto md:mx-0 ${isLeft ? '' : 'md:ml-auto md:mr-0'}`}
                         style={{ background: 'var(--color-accent)', opacity: 0.4 }} />
                       <p className="font-serif text-lg leading-relaxed"
                         style={{ color: 'var(--color-text)', opacity: 0.78 }}>
-                        <EditableText field="description" index={i} arrayField="coupleStory" multiline>{item.description}</EditableText>
+                        {item.description}
                       </p>
                     </motion.div>
                   </div>

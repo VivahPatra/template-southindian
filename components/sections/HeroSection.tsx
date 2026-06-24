@@ -2,16 +2,12 @@
 import { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useWeddingData } from '@/context/WeddingDataContext'
-import { useEditMode } from '@/context/EditModeContext'
-import EditableText from '@/components/ui/EditableText'
 import { fadeUp, staggerContainer } from '@/lib/animations'
 import OrnateFrame from '@/components/ui/OrnateFrame'
 import { formatShortDate } from '@/lib/utils'
 
 export default function HeroSection() {
   const weddingData = useWeddingData()
-  const { isEditing, data: editData } = useEditMode()
-  const d = isEditing ? editData : weddingData
   const outerRef = useRef<HTMLDivElement>(null)
   const [curtainOpen, setCurtainOpen] = useState(false)
 
@@ -42,8 +38,8 @@ export default function HeroSection() {
       {/* ── Parallax background ── */}
       <div className="absolute inset-0">
         <motion.img
-          src={d.heroImage}
-          alt={`${d.groomName} and ${d.brideName}`}
+          src={weddingData.heroImage}
+          alt={`${weddingData.groomName} and ${weddingData.brideName}`}
           style={{
             position: 'absolute',
             bottom: 0,
@@ -87,7 +83,7 @@ export default function HeroSection() {
         <motion.div variants={fadeUp} className="mb-3">
           <h1 className="shimmer-text font-display leading-none"
             style={{ fontSize: 'clamp(3.5rem, 8vw, 7rem)', letterSpacing: '0.08em' }}>
-            <EditableText field="groomName" tag="span" className="shimmer-text font-display leading-none" style={{ fontSize: 'inherit', letterSpacing: 'inherit' }}>{d.groomName}</EditableText>
+            {weddingData.groomName}
           </h1>
         </motion.div>
 
@@ -102,14 +98,14 @@ export default function HeroSection() {
         <motion.div variants={fadeUp} className="mb-8">
           <h1 className="shimmer-text font-display leading-none"
             style={{ fontSize: 'clamp(3.5rem, 8vw, 7rem)', letterSpacing: '0.08em' }}>
-            <EditableText field="brideName" tag="span" className="shimmer-text font-display leading-none" style={{ fontSize: 'inherit', letterSpacing: 'inherit' }}>{d.brideName}</EditableText>
+            {weddingData.brideName}
           </h1>
         </motion.div>
 
         <motion.div variants={fadeUp} className="flex flex-col items-center gap-2">
           <div className="h-px w-20 opacity-50" style={{ background: 'var(--color-accent)' }} />
           <p className="font-sans text-xs tracking-[0.35em] uppercase" style={{ color: 'var(--color-accent)' }}>
-            {formatShortDate(d.weddingDate)}
+            {formatShortDate(weddingData.weddingDate)}
           </p>
           <div className="h-px w-20 opacity-50" style={{ background: 'var(--color-accent)' }} />
         </motion.div>
@@ -164,11 +160,11 @@ export default function HeroSection() {
         >
           <p className="font-display shimmer-text"
             style={{ fontSize: 'clamp(2.8rem, 7vw, 5.5rem)', letterSpacing: '0.06em', textShadow: '0 2px 24px rgba(0,0,0,0.9)' }}>
-            {d.groomName} &amp; {d.brideName}
+            {weddingData.groomName} &amp; {weddingData.brideName}
           </p>
           <p className="font-sans text-xs tracking-[0.4em] uppercase mt-3 mb-2"
             style={{ color: 'var(--color-accent)', opacity: 0.85, textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}>
-            {formatShortDate(d.weddingDate)}
+            {formatShortDate(weddingData.weddingDate)}
           </p>
           <div className="flex flex-col items-center gap-2 mt-8">
             <p className="font-sans text-xs tracking-[0.5em] uppercase"
