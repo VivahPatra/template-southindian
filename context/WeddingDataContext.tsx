@@ -16,7 +16,13 @@ interface EditorFormData {
   weddingDate?: string
   hashtag?: string
   tagline?: string
+  heroSubtitle?: string
+  invitationHeading?: string
+  invitationSubtitle?: string
+  invitationBlessing?: string
   invitationText?: string
+  rsvpHeading?: string
+  rsvpText?: string
   heroImage?: string
   bridePhoto?: string
   groomPhoto?: string
@@ -26,6 +32,7 @@ interface EditorFormData {
     id: string
     name: string
     emoji?: string
+    image?: string
     date: string
     time: string
     venue: string
@@ -50,6 +57,7 @@ interface EditorFormData {
   rsvpMessage?: string
   rsvpDeadline?: string
   instagram?: string
+  infoCards?: Array<{ icon?: string; title?: string; description?: string }>
   sections?: Record<string, unknown>
 }
 
@@ -69,7 +77,16 @@ function mapEditorToConfig(editor: EditorFormData, base: WeddingConfig): Wedding
   merged.groomParents = str(editor.groomParents, base.groomParents) as string | undefined
   merged.brideParents = str(editor.brideParents, base.brideParents) as string | undefined
   merged.hashtag = str(editor.hashtag, base.hashtag) as string
+  merged.tagline = str(editor.tagline, base.tagline) as string | undefined
+  merged.heroSubtitle = str(editor.heroSubtitle, base.heroSubtitle) as string | undefined
   merged.contactPhone = str(editor.rsvpPhone, base.contactPhone) as string
+  merged.invitationHeading = str(editor.invitationHeading, base.invitationHeading) as string | undefined
+  merged.invitationSubtitle = str(editor.invitationSubtitle, base.invitationSubtitle) as string | undefined
+  merged.invitationBlessing = str(editor.invitationBlessing, base.invitationBlessing) as string | undefined
+  merged.invitationText = str(editor.invitationText, base.invitationText) as string | undefined
+  merged.rsvpHeading = str(editor.rsvpHeading, base.rsvpHeading) as string | undefined
+  merged.rsvpText = str(editor.rsvpText, base.rsvpText) as string | undefined
+  merged.rsvpDeadline = str(editor.rsvpDeadline, base.rsvpDeadline) as string | undefined
 
   // Media fields
   merged.heroImage = str(editor.heroImage, base.heroImage) as string
@@ -108,7 +125,7 @@ function mapEditorToConfig(editor: EditorFormData, base: WeddingConfig): Wedding
         venue: str(editorEvent.venue, baseEvent?.venue || '') as string,
         venueAddress: str(editorEvent.venueAddress, baseEvent?.venueAddress || '') as string,
         venueMapLink: str(editorEvent.venueMapLink, baseEvent?.venueMapLink || '') as string,
-        image: baseEvent?.image || '',
+        image: str(editorEvent.image, baseEvent?.image || '') as string,
         color: str(editorEvent.color, baseEvent?.color) as string | undefined,
       }
     })
@@ -152,6 +169,19 @@ function mapEditorToConfig(editor: EditorFormData, base: WeddingConfig): Wedding
       ...base.socialLinks,
       instagram: str(editor.instagram, base.socialLinks.instagram) as string | undefined,
     }
+  }
+
+  // Info cards
+  if (editor.infoCards && editor.infoCards.length > 0) {
+    merged.infoCards = editor.infoCards.map((editorCard: { icon?: string; title?: string; description?: string }, i: number) => {
+      const baseCard = base.infoCards[i]
+      return {
+        icon: str(editorCard.icon, baseCard?.icon || '📌') as string,
+        title: str(editorCard.title, baseCard?.title || '') as string,
+        titleHindi: baseCard?.titleHindi || '',
+        description: str(editorCard.description, baseCard?.description || '') as string,
+      }
+    })
   }
 
   return merged

@@ -48,11 +48,11 @@ export default function InvitationSection() {
         <motion.div variants={staggerFast} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
           <motion.p variants={fadeUp} className="font-sans text-xs tracking-[0.45em] uppercase mb-5 glow-pulse"
             style={{ color: 'var(--color-accent)', opacity: 0.7 }}>
-            <img src="/assets/diya.png" alt="" aria-hidden className="lantern-glow" style={{ width: 56, height: 'auto', display: 'inline', verticalAlign: 'middle' }} /> &nbsp; Shubh Vivah &nbsp; <img src="/assets/diya.png" alt="" aria-hidden className="lantern-glow" style={{ width: 56, height: 'auto', display: 'inline', verticalAlign: 'middle' }} />
+            <img src="/assets/diya.png" alt="" aria-hidden className="lantern-glow" style={{ width: 56, height: 'auto', display: 'inline', verticalAlign: 'middle' }} /> &nbsp; {weddingData.invitationSubtitle || 'Shubh Vivah'} &nbsp; <img src="/assets/diya.png" alt="" aria-hidden className="lantern-glow" style={{ width: 56, height: 'auto', display: 'inline', verticalAlign: 'middle' }} />
           </motion.p>
           <motion.h2 variants={fadeUp} className="font-display shimmer-text mb-10"
             style={{ fontSize: 'clamp(2.6rem, 6vw, 4rem)', lineHeight: 1.1 }}>
-            You Are Invited
+            {weddingData.invitationHeading || 'You Are Invited'}
           </motion.h2>
 
           <motion.div variants={fadeUp} data-cursor-glow className="relative px-8 py-12 rounded-2xl"
@@ -85,7 +85,7 @@ export default function InvitationSection() {
               </div>
               <p className="font-sans text-xs tracking-[0.35em] uppercase mt-3 glow-pulse"
                 style={{ color: 'var(--color-accent)', opacity: 0.6 }}>
-                ॥ Shree Ganeshaya Namah ॥
+                {weddingData.invitationBlessing || '॥ Shree Ganeshaya Namah ॥'}
               </p>
             </div>
 
@@ -122,8 +122,7 @@ export default function InvitationSection() {
             </svg>
 
             <p className="font-serif text-lg leading-relaxed mb-8" style={{ color: 'var(--color-text)', opacity: 0.8 }}>
-              Together with our families, we joyfully invite you to witness and bless the beginning of our forever.
-              Your presence will make our celebration truly complete.
+              {weddingData.invitationText || 'Together with our families, we joyfully invite you to witness and bless the beginning of our forever. Your presence will make our celebration truly complete.'}
             </p>
 
             <Divider />

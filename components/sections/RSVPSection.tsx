@@ -20,13 +20,13 @@ export default function RSVPSection() {
         <motion.p variants={fadeUp} className="font-sans text-xs tracking-[0.4em] uppercase mb-3 glow-pulse"
           style={{ color: 'var(--color-accent)', opacity: 0.6 }}>✦ ✦ ✦</motion.p>
         <motion.h2 variants={fadeUp} className="font-display text-5xl md:text-6xl" style={{ color: 'var(--color-text)' }}>
-          Will You Attend?
+          {weddingData.rsvpHeading || 'Will You Attend?'}
         </motion.h2>
         <Divider />
         <motion.p variants={fadeUp} className="font-sans text-base leading-relaxed mb-10"
           style={{ color: 'var(--color-muted)' }}>
-          We would be honoured to have you celebrate with us. Please RSVP by{' '}
-          <span style={{ color: 'var(--color-accent)' }}>December 1, 2026</span>.
+          {weddingData.rsvpText || 'We would be honoured to have you celebrate with us.'} Please RSVP by{' '}
+          <span style={{ color: 'var(--color-accent)' }}>{weddingData.rsvpDeadline || 'December 1, 2026'}</span>.
         </motion.p>
         <motion.div className="flex justify-center"
           variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
