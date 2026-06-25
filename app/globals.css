@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 /* ── Custom cursor ── */
-body { cursor: none; }
-* { cursor: none !important; }
+@media (pointer: fine) { body { cursor: none; } }
+@media (pointer: fine) { * { cursor: none !important; } }
 
 /* ── Tailwind v4 theme tokens ── */
 @theme inline {
