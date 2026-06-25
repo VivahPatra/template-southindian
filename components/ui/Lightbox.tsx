@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import Image from 'next/image'
+// using img for external URL support
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 
 interface LightboxProps {
@@ -35,7 +35,7 @@ export default function Lightbox({ images, currentIndex, onClose, onPrev, onNext
           onClick={e => e.stopPropagation()}
           initial={{ opacity: 0, scale: 0.93 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.93 }}
           transition={{ duration: 0.22 }}>
-          <Image src={images[currentIndex]} alt={`Gallery image ${currentIndex + 1}`} fill className="object-contain" priority />
+          <img src={images[currentIndex]} alt={`Gallery image ${currentIndex + 1}`} className="absolute inset-0 w-full h-full object-contain" />
         </motion.div>
       </AnimatePresence>
       <button className="absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center z-10"

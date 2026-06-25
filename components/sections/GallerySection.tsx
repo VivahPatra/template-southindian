@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import Image from 'next/image'
+// removed next/image — external URLs need regular img
 import { useWeddingData } from '@/context/WeddingDataContext'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import Divider from '@/components/ui/Divider'
@@ -46,8 +46,8 @@ export default function GallerySection() {
                 whileHover={{ scale: 1.03, boxShadow: '0 0 32px rgba(201,168,76,0.28)' }}
                 transition={{ duration: 0.2 }}>
                 <DevAssetLabel path={src}>
-                  <Image src={src} alt={`Photo ${i + 1}`} fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                  <img src={src} alt={`Photo ${i + 1}`}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
                 </DevAssetLabel>
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none"
                   style={{ background: 'rgba(0,0,0,0.25)' }}>

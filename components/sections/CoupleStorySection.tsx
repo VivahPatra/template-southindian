@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
+// using img for external URL support
 import { useWeddingData } from '@/context/WeddingDataContext'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import Divider from '@/components/ui/Divider'
@@ -61,7 +61,7 @@ export default function CoupleStorySection() {
                         <div className="relative aspect-[4/3] rounded-2xl overflow-hidden"
                           style={{ border: '1px solid rgba(201,168,76,0.25)' }}>
                           {item.image ? (
-                            <Image src={item.image} alt={item.title} fill className="object-cover" loading="lazy" />
+                            <img src={item.image} alt={item.title} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
                           ) : (
                             <div className="absolute inset-0 flex items-center justify-center kolam-bg"
                               style={{ background: 'rgba(201,168,76,0.06)' }}>
