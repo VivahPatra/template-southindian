@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { WeddingDataProvider } from '@/context/WeddingDataContext'
+import SectionGate from '@/components/ui/SectionGate'
 import CustomCursor from '@/components/layout/CustomCursor'
 import LoadingScreen from '@/components/layout/LoadingScreen'
 import FloatingFABs from '@/components/layout/FloatingFABs'
@@ -34,34 +35,33 @@ export default function WeddingPage() {
       {!loading && (
         <>
           <FloatingFABs />
-
           <div className="relative" style={{ overflowX: 'clip' }}>
             <main>
-              <HeroSection />
+              <SectionGate name="hero"><HeroSection /></SectionGate>
 
-              <WaveTransition fromColor={HERO}  toColor={GREEN}  boatDelay={0} />
-              <InvitationSection />
+              <WaveTransition fromColor={HERO} toColor={GREEN} boatDelay={0} />
+              <SectionGate name="invitation"><InvitationSection /></SectionGate>
 
-              <WaveTransition fromColor={GREEN} toColor={EARTH}  boatDelay={3} />
-              <CoupleStorySection />
+              <WaveTransition fromColor={GREEN} toColor={EARTH} boatDelay={3} />
+              <SectionGate name="coupleStory"><CoupleStorySection /></SectionGate>
 
-              <WaveTransition fromColor={EARTH} toColor={GREEN}  flipped boatDelay={6} />
-              <GallerySection />
+              <WaveTransition fromColor={EARTH} toColor={GREEN} flipped boatDelay={6} />
+              <SectionGate name="gallery"><GallerySection /></SectionGate>
 
-              <WaveTransition fromColor={GREEN} toColor={EARTH}  boatDelay={1} />
-              <EventsSection />
+              <WaveTransition fromColor={GREEN} toColor={EARTH} boatDelay={1} />
+              <SectionGate name="events"><EventsSection /></SectionGate>
 
-              <WaveTransition fromColor={EARTH} toColor={GREEN}  flipped boatDelay={8} />
-              <RSVPSection />
+              <WaveTransition fromColor={EARTH} toColor={GREEN} flipped boatDelay={8} />
+              <SectionGate name="rsvp"><RSVPSection /></SectionGate>
 
-              <WaveTransition fromColor={GREEN} toColor={EARTH}  boatDelay={4} />
-              <CountdownSection />
+              <WaveTransition fromColor={GREEN} toColor={EARTH} boatDelay={4} />
+              <SectionGate name="countdown"><CountdownSection /></SectionGate>
 
-              <WaveTransition fromColor={EARTH} toColor={GREEN}  flipped boatDelay={2} />
-              <InfoSection />
+              <WaveTransition fromColor={EARTH} toColor={GREEN} flipped boatDelay={2} />
+              <SectionGate name="info"><InfoSection /></SectionGate>
 
               <WaveTransition fromColor={GREEN} toColor={SURFACE} boatDelay={7} />
-              <FooterSection />
+              <SectionGate name="footer"><FooterSection /></SectionGate>
             </main>
           </div>
         </>

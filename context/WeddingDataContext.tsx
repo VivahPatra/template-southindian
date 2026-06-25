@@ -171,6 +171,11 @@ function mapEditorToConfig(editor: EditorFormData, base: WeddingConfig): Wedding
     }
   }
 
+  // Section visibility
+  if (editor.sections) {
+    merged.sections = editor.sections as Record<string, boolean>
+  }
+
   // Info cards
   if (editor.infoCards && editor.infoCards.length > 0) {
     merged.infoCards = editor.infoCards.map((editorCard: { icon?: string; title?: string; description?: string }, i: number) => {
