@@ -82,7 +82,7 @@ function EventNode({ event, isHero = false, delay = 0 }: { event: WeddingEvent; 
           <a href={event.venueMapLink} target="_blank" rel="noopener noreferrer"
             className="inline-block mt-2 font-sans text-xs tracking-wider underline underline-offset-2 hover:opacity-100"
             style={{ color: color, opacity: 0.85 }}>
-            📍 View on Maps
+            📍 Get Directions
           </a>
         )}
       </div>
