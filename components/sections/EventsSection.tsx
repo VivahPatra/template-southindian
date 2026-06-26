@@ -46,8 +46,8 @@ function EventNode({ event, isHero = false, delay = 0 }: { event: WeddingEvent; 
           style={{ border: `2px solid ${color}`, opacity: 0.55 }} />
         {event.image ? (
           <img src={event.image} alt={event.name}
-            className="absolute inset-0 rounded-full object-cover transition-all duration-500 group-hover:brightness-100"
-            style={{ width: '100%', height: '100%', filter: 'brightness(0.82) saturate(1.05)' }} loading="lazy" />
+            className="absolute inset-0 object-contain transition-all duration-500"
+            style={{ width: '100%', height: '100%', filter: 'brightness(1.2) saturate(1.1)' }} loading="lazy" />
         ) : (
           <div className="absolute inset-0 rounded-full flex items-center justify-center"
             style={{ background: `radial-gradient(circle, ${color}22 0%, ${color}08 100%)`, fontSize: isHero ? 44 : 32 }}>
