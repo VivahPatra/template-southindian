@@ -56,8 +56,6 @@ function EventNode({ event, isHero = false, delay = 0 }: { event: WeddingEvent; 
               : emoji}
           </div>
         )}
-        <div className="absolute inset-0 rounded-full pointer-events-none"
-          style={{ background: `radial-gradient(circle, transparent 50%, ${color}18 100%)` }} />
       </div>
       <div className="text-center mt-3">
         <p className="font-display tracking-wide" style={{ color: 'var(--color-text)', fontSize: isHero ? '1.2rem' : '0.95rem' }}>
