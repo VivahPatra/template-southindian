@@ -82,8 +82,8 @@ export const weddingData: WeddingConfig = {
       color: '#c8a030',
     },
     {
-      id: 'pallikkettu',
-      name: 'Pallikkettu',
+      id: 'sangeetam',
+      name: 'Sangeetam',
       nameHindi: 'பள்ளிக்கட்டு',
       date: 'December 13, 2026',
       time: '7:00 PM',
