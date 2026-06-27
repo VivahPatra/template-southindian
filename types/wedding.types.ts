@@ -75,5 +75,6 @@ export interface WeddingConfig {
   seo: SEOConfig
   contactPhone: string
   venue: { name: string; address: string; mapLink: string }
+  groomFirst?: boolean
   sections?: Record<string, boolean>
 }
