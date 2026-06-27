@@ -7,6 +7,7 @@ const WeddingDataContext = createContext<WeddingConfig>(defaultData)
 
 /** Editor form data shape sent via postMessage from the showcase editor */
 interface EditorFormData {
+  groomFirst?: boolean
   groomName?: string
   brideName?: string
   groomParents?: string
@@ -189,6 +190,12 @@ function mapEditorToConfig(editor: EditorFormData, base: WeddingConfig): Wedding
     })
   }
 
+  // Name order swap
+  if (editor.groomFirst === false) {
+    const tmpName = merged.groomName; merged.groomName = merged.brideName; merged.brideName = tmpName
+    const tmpParents = merged.groomParents; merged.groomParents = merged.brideParents; merged.brideParents = tmpParents
+    if ("groomSubtitle" in merged && "brideSubtitle" in merged) { const tmpSub = merged.groomSubtitle; merged.groomSubtitle = merged.brideSubtitle; merged.brideSubtitle = tmpSub }
+  }
   return merged
 }
 
