@@ -12,6 +12,7 @@ import InvitationSection from '@/components/sections/InvitationSection'
 import CoupleStorySection from '@/components/sections/CoupleStorySection'
 import GallerySection from '@/components/sections/GallerySection'
 import EventsSection from '@/components/sections/EventsSection'
+import VenueSection from '@/components/sections/VenueSection'
 import RSVPSection from '@/components/sections/RSVPSection'
 import CountdownSection from '@/components/sections/CountdownSection'
 import InfoSection from '@/components/sections/InfoSection'
@@ -52,6 +53,9 @@ export default function WeddingPage() {
               <SectionGate name="events"><EventsSection /></SectionGate>
 
               <WaveTransition fromColor={EARTH} toColor={GREEN} flipped boatDelay={8} />
+              <SectionGate name="venue"><VenueSection /></SectionGate>
+
+              <WaveTransition fromColor={GREEN} toColor={EARTH} boatDelay={5} />
               <SectionGate name="rsvp"><RSVPSection /></SectionGate>
 
               <WaveTransition fromColor={GREEN} toColor={EARTH} boatDelay={4} />
