@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useWeddingData } from '@/context/WeddingDataContext'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import { staggerFast, fadeUp } from '@/lib/animations'
+import { formatShortDate } from '@/lib/utils'
 
 const EARTH_BG = 'linear-gradient(160deg, #1a1408 0%, #241a0c 50%, #1e1408 100%)'
 
@@ -72,6 +73,10 @@ export default function VenueSection() {
             style={{ color: 'var(--color-muted)' }}
           >
             {venue.address}
+          </motion.p>
+
+          <motion.p variants={fadeUp} className="font-sans text-xs tracking-[0.3em] uppercase mb-8" style={{ color: 'var(--color-accent)', opacity: 0.7 }}>
+            {formatShortDate(weddingData.weddingDate)} · {weddingData.weddingDate.toLocaleTimeString('en-IN', { hour: 'numeric', minute: '2-digit', hour12: true })}
           </motion.p>
 
           {/* Get Directions button */}
