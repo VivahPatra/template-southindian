@@ -201,18 +201,18 @@ function mapEditorToConfig(editor: EditorFormData, base: WeddingConfig): Wedding
 }
 
 export function WeddingDataProvider({ children }: { children: ReactNode }) {
-  const isIframe = typeof window !== 'undefined' && window.parent !== window
   const [data, setData] = useState<WeddingConfig>(defaultData)
-  const [ready, setReady] = useState(!isIframe)
+  const [ready, setReady] = useState(true)
 
   useEffect(() => {
     const inIframe = window.parent !== window
+    if (inIframe) setReady(false)
 
     function handleMessage(event: MessageEvent) {
       if (event.data?.type === 'VIVAHPATRA_UPDATE' && event.data.data) {
         const editorData = event.data.data as EditorFormData
         setData((prev) => mapEditorToConfig(editorData, prev))
-        if (!ready) setReady(true)
+        setReady(true)
       }
     }
 
