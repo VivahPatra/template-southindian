@@ -11,7 +11,7 @@ export const weddingData: WeddingConfig = {
   hashtag: '#ArjunWedslakshmi',
   contactPhone: '+919876543210',
 
-  heroImage: '/assets/hero.png',
+  heroImage: '/assets/hero.webp',
   bridePhoto: '/assets/bride.jpg',
   groomPhoto: '/assets/groom.jpg',
   invitationMusic: '/assets/music.mp3',
@@ -66,7 +66,7 @@ export const weddingData: WeddingConfig = {
       venue: 'Nair Residence',
       venueAddress: 'Pattom, Thiruvananthapuram, Kerala',
       venueMapLink: 'https://maps.google.com/?q=Pattom+Thiruvananthapuram',
-      image: '/assets/events/engagement.png',
+      image: '/assets/events/engagement.webp',
       color: '#c9a84c',
     },
     {
@@ -78,7 +78,7 @@ export const weddingData: WeddingConfig = {
       venue: 'Nair Residence',
       venueAddress: 'Pattom, Thiruvananthapuram, Kerala',
       venueMapLink: 'https://maps.google.com/?q=Pattom+Thiruvananthapuram',
-      image: '/assets/events/haldi.png',
+      image: '/assets/events/haldi.webp',
       color: '#c8a030',
     },
     {
@@ -90,7 +90,7 @@ export const weddingData: WeddingConfig = {
       venue: 'Kanakakunnu Palace',
       venueAddress: 'Museum Road, Thiruvananthapuram, Kerala',
       venueMapLink: 'https://maps.google.com/?q=Kanakakunnu+Palace+Thiruvananthapuram',
-      image: '/assets/events/sangeet.png',
+      image: '/assets/events/sangeet.webp',
       color: '#8b6fc4',
     },
     {
@@ -102,7 +102,7 @@ export const weddingData: WeddingConfig = {
       venue: 'Sree Padmanabhaswamy Temple Hall',
       venueAddress: 'East Fort, Thiruvananthapuram, Kerala 695023',
       venueMapLink: 'https://maps.google.com/?q=Padmanabhaswamy+Temple+Thiruvananthapuram',
-      image: '/assets/events/wedding.png',
+      image: '/assets/events/wedding.webp',
       color: '#c9a84c',
     },
     {
@@ -114,7 +114,7 @@ export const weddingData: WeddingConfig = {
       venue: 'Sree Padmanabhaswamy Temple Hall',
       venueAddress: 'East Fort, Thiruvananthapuram, Kerala 695023',
       venueMapLink: 'https://maps.google.com/?q=Padmanabhaswamy+Temple+Thiruvananthapuram',
-      image: '/assets/events/mehendi.png',
+      image: '/assets/events/mehendi.webp',
       color: '#5a9a60',
     },
     {
@@ -126,7 +126,7 @@ export const weddingData: WeddingConfig = {
       venue: 'Taj Vivanta Hotel',
       venueAddress: 'Punnen Road, Thiruvananthapuram, Kerala 695001',
       venueMapLink: 'https://maps.google.com/?q=Taj+Vivanta+Thiruvananthapuram',
-      image: '/assets/events/reception.png',
+      image: '/assets/events/reception.webp',
       color: '#c07060',
     },
   ],

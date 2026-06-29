@@ -14,7 +14,7 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
       {/* Vilakku lamp */}
       <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.3, duration: 0.6 }} className="mb-6">
-        <img src="/assets/lantern.png" alt="" aria-hidden className="lantern-glow" style={{ width: 96, height: 'auto', objectFit: 'contain' }} />
+        <img src="/assets/lantern.webp" alt="" aria-hidden className="lantern-glow" style={{ width: 96, height: 'auto', objectFit: 'contain' }} />
       </motion.div>
 
       <motion.p className="font-display text-4xl md:text-5xl tracking-widest"

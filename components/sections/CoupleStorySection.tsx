@@ -65,7 +65,7 @@ export default function CoupleStorySection() {
                           ) : (
                             <div className="absolute inset-0 flex items-center justify-center kolam-bg"
                               style={{ background: 'rgba(201,168,76,0.06)' }}>
-                              <img src="/assets/diya.png" alt="" aria-hidden className="lantern-glow" style={{ width: 56, height: 'auto', opacity: 0.3 }} />
+                              <img src="/assets/diya.webp" alt="" aria-hidden className="lantern-glow" style={{ width: 56, height: 'auto', opacity: 0.3 }} />
                             </div>
                           )}
                           <div className="absolute inset-0"

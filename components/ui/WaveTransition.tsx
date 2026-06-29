@@ -67,7 +67,7 @@ export default function WaveTransition({
       <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none', zIndex: 10, maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)' }}>
         <div style={{ position: 'absolute', bottom: 8, left: 0, animation: `boatSailSection 16s linear infinite`, animationDelay: `${boatDelay}s` }}>
           <div style={{ animation: 'boatBob 3.5s ease-in-out infinite' }}>
-            <img src="/assets/boat.png" alt="" style={{ height: 52, width: 'auto', display: 'block' }} />
+            <img src="/assets/boat.webp" alt="" style={{ height: 52, width: 'auto', display: 'block' }} />
           </div>
         </div>
       </div>

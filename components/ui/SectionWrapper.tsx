@@ -21,7 +21,7 @@ export default function SectionWrapper({ children, className, id, style }: Secti
       whileInView="visible"
       viewport={{ once: true, margin: '-80px' }}
     >
-      <img src="/assets/flower.png" alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+      <img src="/assets/flower.webp" alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none"
         style={{ opacity: 0.5, mixBlendMode: 'overlay' }} />
       <div className="relative z-10">
         {children}

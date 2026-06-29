@@ -27,9 +27,9 @@ export default function VenueSection() {
             className="font-sans text-xs tracking-[0.4em] uppercase mb-4 glow-pulse flex items-center justify-center gap-2 whitespace-nowrap"
             style={{ color: 'var(--color-accent)', opacity: 0.7 }}
           >
-            <img src="/assets/diya.png" alt="" aria-hidden className="lantern-glow" style={{ width: 36, height: 'auto', flexShrink: 0 }} />
+            <img src="/assets/diya.webp" alt="" aria-hidden className="lantern-glow" style={{ width: 36, height: 'auto', flexShrink: 0 }} />
             The Venue
-            <img src="/assets/diya.png" alt="" aria-hidden className="lantern-glow" style={{ width: 36, height: 'auto', flexShrink: 0 }} />
+            <img src="/assets/diya.webp" alt="" aria-hidden className="lantern-glow" style={{ width: 36, height: 'auto', flexShrink: 0 }} />
           </motion.p>
 
           <motion.h2

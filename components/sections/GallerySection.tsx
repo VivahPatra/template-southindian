@@ -51,7 +51,7 @@ export default function GallerySection() {
                 </DevAssetLabel>
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none"
                   style={{ background: 'rgba(0,0,0,0.25)' }}>
-                  <img src="/assets/diya.png" alt="" aria-hidden className="lantern-glow" style={{ width: 56, height: 'auto' }} />
+                  <img src="/assets/diya.webp" alt="" aria-hidden className="lantern-glow" style={{ width: 56, height: 'auto' }} />
                 </div>
               </motion.div>
             ))}

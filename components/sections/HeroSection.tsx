@@ -89,9 +89,9 @@ export default function HeroSection() {
 
         <motion.div variants={fadeUp} className="flex items-center gap-5 my-3">
           <div className="h-px w-14 md:w-20" style={{ background: 'var(--color-accent)', opacity: 0.5 }} />
-          <img src="/assets/lantern.png" alt="" aria-hidden className="lantern-glow" style={{ width: 36, height: 'auto', objectFit: 'contain' }} />
+          <img src="/assets/lantern.webp" alt="" aria-hidden className="lantern-glow" style={{ width: 36, height: 'auto', objectFit: 'contain' }} />
           <span className="font-display text-3xl glow-pulse" style={{ color: 'var(--color-accent)' }}>&amp;</span>
-          <img src="/assets/lantern.png" alt="" aria-hidden className="lantern-glow" style={{ width: 36, height: 'auto', objectFit: 'contain' }} />
+          <img src="/assets/lantern.webp" alt="" aria-hidden className="lantern-glow" style={{ width: 36, height: 'auto', objectFit: 'contain' }} />
           <div className="h-px w-14 md:w-20" style={{ background: 'var(--color-accent)', opacity: 0.5 }} />
         </motion.div>
 
@@ -120,7 +120,7 @@ export default function HeroSection() {
         transition={{ duration: 1.4, ease: [0.76, 0, 0.24, 1] }}
       >
         <img
-          src="/assets/coconut-left.png"
+          src="/assets/coconut-left.webp"
           alt=""
           className="h-full w-full object-cover object-right"
           style={{ userSelect: 'none', pointerEvents: 'none', filter: 'brightness(0.65) saturate(1.1)' }}
@@ -137,7 +137,7 @@ export default function HeroSection() {
         transition={{ duration: 1.4, ease: [0.76, 0, 0.24, 1], delay: 0.08 }}
       >
         <img
-          src="/assets/coconut-right.png"
+          src="/assets/coconut-right.webp"
           alt=""
           className="h-full w-full object-cover object-left"
           style={{ userSelect: 'none', pointerEvents: 'none', filter: 'brightness(0.65) saturate(1.1)' }}
@@ -183,7 +183,7 @@ export default function HeroSection() {
       <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none', zIndex: 15, maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)' }} aria-hidden>
         <div style={{ position: 'absolute', bottom: 18, left: 0, animation: 'boatSailSection 14s linear infinite' }}>
           <div style={{ animation: 'boatBob 3.5s ease-in-out infinite' }}>
-            <img src="/assets/boat.png" alt="" style={{ height: 60, width: 'auto', display: 'block' }} />
+            <img src="/assets/boat.webp" alt="" style={{ height: 60, width: 'auto', display: 'block' }} />
           </div>
         </div>
       </div>

@@ -18,7 +18,7 @@ export default function FloatingCoconutTree({
       aria-hidden
     >
       <img
-        src={side === 'left' ? '/assets/coconut-left.png' : '/assets/coconut-right.png'}
+        src={side === 'left' ? '/assets/coconut-left.webp' : '/assets/coconut-right.webp'}
         alt=""
         style={{
           width: 'auto',

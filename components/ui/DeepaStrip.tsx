@@ -2,9 +2,9 @@
 import { motion } from 'framer-motion'
 
 const ASSET_MAP = {
-  diya:       { src: '/assets/diya.png',       cls: 'lantern-glow', sizes: [36,40,50,44,56,42,52,38,48] },
-  bananaleaf: { src: '/assets/bananaleaf.png', cls: 'leaf-sway',    sizes: [52,44,60,48,64,46,58,42,54] },
-  lantern:    { src: '/assets/lantern.png',    cls: 'lantern-glow', sizes: [42,50,46,56,40,52,44,58,48] },
+  diya:       { src: '/assets/diya.webp',       cls: 'lantern-glow', sizes: [36,40,50,44,56,42,52,38,48] },
+  bananaleaf: { src: '/assets/bananaleaf.webp', cls: 'leaf-sway',    sizes: [52,44,60,48,64,46,58,42,54] },
+  lantern:    { src: '/assets/lantern.webp',    cls: 'lantern-glow', sizes: [42,50,46,56,40,52,44,58,48] },
 }
 
 const POSITIONS = ['4%','13%','23%','33%','43%','53%','63%','73%','83%']

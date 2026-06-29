@@ -38,7 +38,7 @@ export default function CountdownSection() {
         <Divider />
         {isPast ? (
           <motion.p variants={fadeUp} className="font-display text-4xl" style={{ color: 'var(--color-accent)' }}>
-            <img src="/assets/diya.png" alt="" aria-hidden className="lantern-glow" style={{ width: 56, height: 'auto', display: 'inline', verticalAlign: 'middle', marginRight: 8 }} /> We Got Married!
+            <img src="/assets/diya.webp" alt="" aria-hidden className="lantern-glow" style={{ width: 56, height: 'auto', display: 'inline', verticalAlign: 'middle', marginRight: 8 }} /> We Got Married!
           </motion.p>
         ) : (
           <motion.div className="flex justify-center gap-4 md:gap-8 mt-4"

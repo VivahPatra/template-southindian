@@ -7,7 +7,7 @@ export default function ScrollBoat() {
     >
       <div style={{ animation: 'boatBob 3.5s ease-in-out infinite' }}>
         <img
-          src="/assets/boat.png"
+          src="/assets/boat.webp"
           alt=""
           style={{ height: 70, width: 'auto', display: 'block' }}
         />
