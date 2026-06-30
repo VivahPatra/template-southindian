@@ -17,6 +17,7 @@ export interface WeddingEvent {
   venueMapLink: string
   image: string
   color?: string
+  hidden?: boolean
 }
 
 export interface InfoCard {

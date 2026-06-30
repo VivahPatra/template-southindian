@@ -93,7 +93,7 @@ function EventNode({ event, isHero = false, delay = 0 }: { event: WeddingEvent; 
 
 export default function EventsSection() {
   const weddingData = useWeddingData()
-  const events = weddingData.events
+  const events = weddingData.events.filter((e) => !e.hidden)
   const half = Math.ceil(events.length / 2)
   const row1 = events.slice(0, half)
   const row2 = events.slice(half)

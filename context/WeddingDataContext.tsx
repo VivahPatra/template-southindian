@@ -41,6 +41,7 @@ interface EditorFormData {
     venueMapLink?: string
     description?: string
     color?: string
+    hidden?: boolean
   }>
   coupleStory?: Array<{
     date: string
@@ -128,6 +129,7 @@ function mapEditorToConfig(editor: EditorFormData, base: WeddingConfig): Wedding
         venueMapLink: str(editorEvent.venueMapLink, baseEvent?.venueMapLink || '') as string,
         image: str(editorEvent.image, baseEvent?.image || '') as string,
         color: str(editorEvent.color, baseEvent?.color) as string | undefined,
+        hidden: editorEvent.hidden,
       }
     })
   }
