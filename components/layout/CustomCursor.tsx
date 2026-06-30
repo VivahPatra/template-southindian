@@ -38,6 +38,7 @@ export default function CustomCursor() {
   }, [isCard])
 
   if (!mounted) return null
+  if (typeof window !== 'undefined' && !window.matchMedia('(pointer: fine)').matches) return null
   const ringW = isCard ? 60 : isLink ? 44 : 32
   const dotW = isCard ? 10 : isLink ? 8 : 6
 
