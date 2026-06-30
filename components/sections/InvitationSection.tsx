@@ -92,7 +92,7 @@ export default function InvitationSection() {
             <div className="my-6">
               <div className="flex items-start justify-center gap-8 flex-wrap">
                 <div className="text-center">
-                  <span className="font-display shimmer-text block" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)' }}>
+                  <span className="font-display shimmer-text block" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', lineHeight: 1.2, padding: '0.1em 0' }}>
                     {weddingData.groomName}
                   </span>
                   {weddingData.groomParents && (
@@ -102,7 +102,7 @@ export default function InvitationSection() {
                   )}
                 </div>
                 <div className="text-center">
-                  <span className="font-display shimmer-text block" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)' }}>
+                  <span className="font-display shimmer-text block" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', lineHeight: 1.2, padding: '0.1em 0' }}>
                     {weddingData.brideName}
                   </span>
                   {weddingData.brideParents && (

@@ -81,8 +81,8 @@ export default function HeroSection() {
           style={{ color: 'var(--color-accent)' }}>ॐ</motion.p>
 
         <motion.div variants={fadeUp} className="mb-3">
-          <h1 className="shimmer-text font-display leading-none"
-            style={{ fontSize: 'clamp(3.5rem, 8vw, 7rem)', letterSpacing: '0.08em' }}>
+          <h1 className="shimmer-text font-display"
+            style={{ fontSize: 'clamp(3rem, 6.5vw, 5.5rem)', letterSpacing: '0.08em', lineHeight: 1.2, padding: '0.1em 0' }}>
             {weddingData.groomName}
           </h1>
         </motion.div>
@@ -96,8 +96,8 @@ export default function HeroSection() {
         </motion.div>
 
         <motion.div variants={fadeUp} className="mb-8">
-          <h1 className="shimmer-text font-display leading-none"
-            style={{ fontSize: 'clamp(3.5rem, 8vw, 7rem)', letterSpacing: '0.08em' }}>
+          <h1 className="shimmer-text font-display"
+            style={{ fontSize: 'clamp(3rem, 6.5vw, 5.5rem)', letterSpacing: '0.08em', lineHeight: 1.2, padding: '0.1em 0' }}>
             {weddingData.brideName}
           </h1>
         </motion.div>
@@ -159,7 +159,7 @@ export default function HeroSection() {
           className="text-center px-8 py-10"
         >
           <p className="font-display shimmer-text"
-            style={{ fontSize: 'clamp(2.8rem, 7vw, 5.5rem)', letterSpacing: '0.06em', textShadow: '0 2px 24px rgba(0,0,0,0.9)' }}>
+            style={{ fontSize: 'clamp(2.4rem, 6vw, 4.5rem)', letterSpacing: '0.06em', textShadow: '0 2px 24px rgba(0,0,0,0.9)', lineHeight: 1.2, padding: '0.1em 0' }}>
             {weddingData.groomName} &amp; {weddingData.brideName}
           </p>
           <p className="font-sans text-xs tracking-[0.4em] uppercase mt-3 mb-2"
