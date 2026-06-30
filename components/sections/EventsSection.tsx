@@ -1,4 +1,5 @@
 'use client'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useWeddingData } from '@/context/WeddingDataContext'
 import SectionWrapper from '@/components/ui/SectionWrapper'
@@ -26,6 +27,7 @@ const EVENT_EMOJI: Record<string, string> = {
 }
 
 function EventNode({ event, isHero = false, delay = 0 }: { event: WeddingEvent; isHero?: boolean; delay?: number }) {
+  const [imgError, setImgError] = useState(false)
   const color = event.color || FALLBACK_COLORS[event.id] || '#c9a84c'
   const emoji = EVENT_EMOJI[event.id] ?? '✦'
   const size = isHero ? 130 : 100
@@ -44,10 +46,11 @@ function EventNode({ event, isHero = false, delay = 0 }: { event: WeddingEvent; 
           style={{ inset: -3, border: `1.5px dashed ${color}`, opacity: 0.5 }} />
         <div className="absolute inset-0 rounded-full transition-opacity duration-300 group-hover:opacity-90"
           style={{ border: `2px solid ${color}`, opacity: 0.55 }} />
-        {event.image ? (
+        {event.image && !imgError ? (
           <img src={event.image} alt={event.name}
             className="absolute inset-0 object-contain transition-all duration-500"
-            style={{ width: '100%', height: '100%', filter: 'brightness(1.2) saturate(1.1)' }} loading="lazy" />
+            style={{ width: '100%', height: '100%', filter: 'brightness(1.2) saturate(1.1)' }} loading="lazy"
+            onError={() => setImgError(true)} />
         ) : (
           <div className="absolute inset-0 rounded-full flex items-center justify-center"
             style={{ background: `radial-gradient(circle, ${color}22 0%, ${color}08 100%)`, fontSize: isHero ? 44 : 32 }}>
