@@ -31,6 +31,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: weddingData.seo.title,
   description: weddingData.seo.description,
+  icons: {
+    icon: [{ url: '/favicon-32.png', sizes: '32x32', type: 'image/png' }, { url: '/favicon.png', type: 'image/png' }],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+  },
   metadataBase: new URL(weddingData.seo.url),
   openGraph: {
     title: weddingData.seo.title,
