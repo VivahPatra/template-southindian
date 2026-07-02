@@ -1,4 +1,5 @@
 'use client'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useWeddingData } from '@/context/WeddingDataContext'
 
@@ -27,8 +28,18 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
 
       <motion.div className="mt-10 h-px" style={{ background: 'var(--color-accent)' }}
         initial={{ width: 0 }} animate={{ width: 120 }}
-        transition={{ delay: 0.9, duration: 0.8, ease: 'easeInOut' }}
-        onAnimationComplete={onComplete} />
-    </motion.div>
+        transition={{ delay: 0.9, duration: 0.8, ease: 'easeInOut' }} />
+  
+      {/* Percentage */}
+      <motion.p
+        className="font-sans text-xs tracking-[0.3em] mt-4"
+        style={{ color: 'var(--color-accent)', opacity: 0.6 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.6 }}
+        transition={{ delay: 0.3 }}
+      >
+        {pct}%
+      </motion.p>
+  </motion.div>
   )
 }
