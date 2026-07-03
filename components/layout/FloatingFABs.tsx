@@ -1,10 +1,40 @@
-'use client'
+﻿'use client'
+import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Music, VolumeX } from 'lucide-react'
-import { useAudioContext } from '@/components/providers/AudioProvider'
+import { useWeddingData, useIsPreview } from '@/context/WeddingDataContext'
 
 export default function FloatingFABs() {
-  const { isPlaying, toggle, showHint } = useAudioContext()
+  const { invitationMusic } = useWeddingData()
+  const isPreview = useIsPreview()
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [showHint, setShowHint] = useState(false)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
+
+  useEffect(() => {
+    const src = invitationMusic || ''
+    if (!src) return
+    const audio = new Audio(src)
+    audio.loop = true
+    audio.volume = 0.4
+    audioRef.current = audio
+    setIsPlaying(false)
+    if (isPreview) {
+      audio.play().then(() => setIsPlaying(true)).catch(() => {
+        setShowHint(true)
+        setTimeout(() => setShowHint(false), 4000)
+      })
+    }
+    return () => { audio.pause(); audio.src = '' }
+  }, [invitationMusic, isPreview])
+
+  const toggle = () => {
+    const audio = audioRef.current
+    if (!audio) return
+    setShowHint(false)
+    if (isPlaying) { audio.pause(); setIsPlaying(false) }
+    else audio.play().then(() => setIsPlaying(true)).catch(() => {})
+  }
 
   const btnStyle = {
     background: 'var(--color-surface)',

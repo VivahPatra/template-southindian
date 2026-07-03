@@ -5,7 +5,6 @@ import {
   Inter,
 } from 'next/font/google'
 import './globals.css'
-import { AudioProvider } from '@/components/providers/AudioProvider'
 import { weddingData } from '@/data/wedding-data'
 
 const cormorant = Cormorant_Garamond({
@@ -48,9 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${cormorant.variable} ${playfair.variable} ${inter.variable}`}>
       <body className="bg-theme-bg text-theme-text font-sans antialiased">
-        <AudioProvider>
-          {children}
-        </AudioProvider>
+        {children}
       </body>
     </html>
   )
