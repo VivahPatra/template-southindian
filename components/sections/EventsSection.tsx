@@ -47,7 +47,7 @@ function EventNode({ event, isHero = false, delay = 0 }: { event: WeddingEvent; 
         <div className="absolute inset-0 rounded-full transition-opacity duration-300 group-hover:opacity-90"
           style={{ border: `2px solid ${color}`, opacity: 0.55 }} />
         {event.image && !imgError ? (
-          <img src={event.image} alt={event.name}
+          <img loading="lazy" src={event.image} alt={event.name}
             className="absolute inset-0 object-contain transition-all duration-500"
             style={{ width: '100%', height: '100%', filter: 'brightness(1.2) saturate(1.1)' }} loading="lazy"
             onError={() => setImgError(true)} />
@@ -55,7 +55,7 @@ function EventNode({ event, isHero = false, delay = 0 }: { event: WeddingEvent; 
           <div className="absolute inset-0 rounded-full flex items-center justify-center"
             style={{ background: `radial-gradient(circle, ${color}22 0%, ${color}08 100%)`, fontSize: isHero ? 44 : 32 }}>
             {emoji === 'diya'
-              ? <img src="/assets/diya.webp" alt="" aria-hidden className="lantern-glow" style={{ width: 56, height: 'auto' }} />
+              ? <img loading="lazy" src="/assets/diya.webp" alt="" aria-hidden className="lantern-glow" style={{ width: 56, height: 'auto' }} />
               : emoji}
           </div>
         )}
@@ -103,20 +103,20 @@ export default function EventsSection() {
       {/* Right mandap decoration — all anchored from bottom */}
       <div className="hidden sm:block" style={{ position: 'absolute', bottom: 80, right: 0, width: 200, height: 480, pointerEvents: 'none', zIndex: 2 }} aria-hidden>
         {/* Leaf: emerges just above pillar top, fans left */}
-        <img src="/assets/bananaleaf.webp" alt="" className="leaf-sway"
+        <img loading="lazy" src="/assets/bananaleaf.webp" alt="" className="leaf-sway"
           style={{ position: 'absolute', top: 50, right: -20, width: 940, height: 'auto', zIndex: 1, opacity: 0.95 }} />
         {/* Trunk: base of banana plant, left of pillar */}
-        <img src="/assets/bananatrunk.webp" alt=""
+        <img loading="lazy" src="/assets/bananatrunk.webp" alt=""
           style={{ position: 'absolute', bottom: 0, right: 80, width: 60, height: 'auto', zIndex: 2, opacity: 0.95 }} />
         {/* Pillar: right edge, bottom-anchored */}
-        <img src="/assets/pillar.webp" alt=""
+        <img loading="lazy" src="/assets/pillar.webp" alt=""
           style={{ position: 'absolute', bottom: 0, right: 0, width: 640, height: 'auto', zIndex: 3, opacity: 1 }} />
       </div>
       {/* Mobile-only: smaller pillar + leaf */}
       <div className="sm:hidden" style={{ position: 'absolute', bottom: 80, right: 0, width: 160, height: 320, pointerEvents: 'none', zIndex: 2 }} aria-hidden>
-        <img src="/assets/bananaleaf.webp" alt="" className="leaf-sway"
+        <img loading="lazy" src="/assets/bananaleaf.webp" alt="" className="leaf-sway"
           style={{ position: 'absolute', top: 0, right: -10, width: 380, height: 'auto', zIndex: 1, opacity: 0.95 }} />
-        <img src="/assets/pillar.webp" alt=""
+        <img loading="lazy" src="/assets/pillar.webp" alt=""
           style={{ position: 'absolute', bottom: 0, right: 0, width: 160, height: 'auto', zIndex: 3, opacity: 0.85 }} />
       </div>
 
@@ -124,7 +124,7 @@ export default function EventsSection() {
       <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none', zIndex: 15, maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)' }} aria-hidden>
         <div style={{ position: 'absolute', bottom: -10, left: 0, animation: 'boatSailSection 14s linear infinite', animationDelay: '4s' }}>
           <div style={{ animation: 'boatBob 3.5s ease-in-out infinite' }}>
-            <img src="/assets/boat.webp" alt="" style={{ height: 60, width: 'auto', display: 'block' }} />
+            <img loading="lazy" src="/assets/boat.webp" alt="" style={{ height: 60, width: 'auto', display: 'block' }} />
           </div>
         </div>
       </div>
@@ -134,7 +134,7 @@ export default function EventsSection() {
           variants={staggerFast} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
           <motion.p variants={fadeUp} className="font-sans text-xs tracking-[0.4em] uppercase mb-4 glow-pulse flex items-center justify-center gap-2 whitespace-nowrap"
             style={{ color: 'var(--color-accent)', opacity: 0.7 }}>
-            <img src="/assets/diya.webp" alt="" aria-hidden className="lantern-glow" style={{ width: 36, height: 'auto', flexShrink: 0 }} /> The Celebrations <img src="/assets/diya.webp" alt="" aria-hidden className="lantern-glow" style={{ width: 36, height: 'auto', flexShrink: 0 }} />
+            <img loading="lazy" src="/assets/diya.webp" alt="" aria-hidden className="lantern-glow" style={{ width: 36, height: 'auto', flexShrink: 0 }} /> The Celebrations <img loading="lazy" src="/assets/diya.webp" alt="" aria-hidden className="lantern-glow" style={{ width: 36, height: 'auto', flexShrink: 0 }} />
           </motion.p>
           <motion.h2 variants={fadeUp} className="font-display"
             style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', color: 'var(--color-text)' }}>

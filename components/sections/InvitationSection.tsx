@@ -39,7 +39,7 @@ export default function InvitationSection() {
       <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none', zIndex: 15, maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)' }} aria-hidden>
         <div style={{ position: 'absolute', bottom: 18, left: 0, animation: 'boatSailSection 14s linear infinite', animationDelay: '2s' }}>
           <div style={{ animation: 'boatBob 3.5s ease-in-out infinite' }}>
-            <img src="/assets/boat.webp" alt="" style={{ height: 60, width: 'auto', display: 'block' }} />
+            <img loading="lazy" src="/assets/boat.webp" alt="" style={{ height: 60, width: 'auto', display: 'block' }} />
           </div>
         </div>
       </div>
@@ -48,7 +48,7 @@ export default function InvitationSection() {
         <motion.div variants={staggerFast} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
           <motion.p variants={fadeUp} className="font-sans text-xs tracking-[0.45em] uppercase mb-5 glow-pulse"
             style={{ color: 'var(--color-accent)', opacity: 0.7 }}>
-            <img src="/assets/diya.webp" alt="" aria-hidden className="lantern-glow" style={{ width: 56, height: 'auto', display: 'inline', verticalAlign: 'middle' }} /> &nbsp; {weddingData.invitationSubtitle || 'Shubh Vivah'} &nbsp; <img src="/assets/diya.webp" alt="" aria-hidden className="lantern-glow" style={{ width: 56, height: 'auto', display: 'inline', verticalAlign: 'middle' }} />
+            <img loading="lazy" src="/assets/diya.webp" alt="" aria-hidden className="lantern-glow" style={{ width: 56, height: 'auto', display: 'inline', verticalAlign: 'middle' }} /> &nbsp; {weddingData.invitationSubtitle || 'Shubh Vivah'} &nbsp; <img loading="lazy" src="/assets/diya.webp" alt="" aria-hidden className="lantern-glow" style={{ width: 56, height: 'auto', display: 'inline', verticalAlign: 'middle' }} />
           </motion.p>
           <motion.h2 variants={fadeUp} className="font-display shimmer-text mb-10"
             style={{ fontSize: 'clamp(2.6rem, 6vw, 4rem)', lineHeight: 1.1 }}>
@@ -81,7 +81,7 @@ export default function InvitationSection() {
             <div className="flex flex-col items-center mb-4">
               <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
                 <div className="ganesha-backdrop" style={{ position: 'absolute', inset: 0, borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,210,80,0.75) 0%, rgba(201,168,76,0.35) 55%, transparent 75%)', filter: 'blur(10px)' }} />
-                <img src="/assets/ganesha.gif" alt="Ganesha" className="ganesha-glow" style={{ width: 58, height: 'auto', position: 'relative', zIndex: 1 }} />
+                <img loading="lazy" src="/assets/ganesha.webp" alt="Ganesha" className="ganesha-glow" style={{ width: 58, height: 'auto', position: 'relative', zIndex: 1 }} />
               </div>
               <p className="font-sans text-xs tracking-[0.35em] uppercase mt-3 glow-pulse"
                 style={{ color: 'var(--color-accent)', opacity: 0.6 }}>

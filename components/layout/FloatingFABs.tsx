@@ -24,6 +24,23 @@ export default function FloatingFABs() {
         setShowHint(true)
         setTimeout(() => setShowHint(false), 4000)
       })
+    } else {
+      setShowHint(true)
+      const playOnGesture = () => {
+        audio.play().then(() => { setIsPlaying(true); setShowHint(false) }).catch(() => {})
+        document.removeEventListener('touchstart', playOnGesture)
+        document.removeEventListener('click', playOnGesture)
+        document.removeEventListener('scroll', playOnGesture)
+      }
+      document.addEventListener('touchstart', playOnGesture, { once: true, passive: true })
+      document.addEventListener('click', playOnGesture, { once: true })
+      document.addEventListener('scroll', playOnGesture, { once: true, passive: true })
+      return () => {
+        document.removeEventListener('touchstart', playOnGesture)
+        document.removeEventListener('click', playOnGesture)
+        document.removeEventListener('scroll', playOnGesture)
+        audio.pause(); audio.src = ''
+      }
     }
     return () => { audio.pause(); audio.src = '' }
   }, [invitationMusic, isPreview])
