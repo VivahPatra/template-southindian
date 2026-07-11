@@ -134,7 +134,7 @@ export default function EventsSection() {
           variants={staggerFast} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
           <motion.p variants={fadeUp} className="font-sans text-xs tracking-[0.4em] uppercase mb-4 glow-pulse flex items-center justify-center gap-2 whitespace-nowrap"
             style={{ color: 'var(--color-accent)', opacity: 0.7 }}>
-            <img loading="lazy" src="/assets/diya.webp" alt="" aria-hidden className="lantern-glow" style={{ width: 36, height: 'auto', flexShrink: 0 }} /> The Celebrations <img loading="lazy" src="/assets/diya.webp" alt="" aria-hidden className="lantern-glow" style={{ width: 36, height: 'auto', flexShrink: 0 }} />
+            <img loading="lazy" src="/assets/diya.webp" alt="" aria-hidden className="lantern-glow" style={{ width: 36, height: 'auto', flexShrink: 0 }} /> The Celebrations <img src="/assets/diya.webp" alt="" aria-hidden className="lantern-glow" style={{ width: 36, height: 'auto', flexShrink: 0 }} />
           </motion.p>
           <motion.h2 variants={fadeUp} className="font-display"
             style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', color: 'var(--color-text)' }}>
