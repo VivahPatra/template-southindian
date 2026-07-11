@@ -47,7 +47,7 @@ export default function GallerySection() {
                 transition={{ duration: 0.2 }}>
                 <DevAssetLabel path={src}>
                   <img loading="lazy" src={src} alt={`Photo ${i + 1}`}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 </DevAssetLabel>
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none"
                   style={{ background: 'rgba(0,0,0,0.25)' }}>
