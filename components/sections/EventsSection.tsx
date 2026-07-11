@@ -49,7 +49,7 @@ function EventNode({ event, isHero = false, delay = 0 }: { event: WeddingEvent; 
         {event.image && !imgError ? (
           <img loading="lazy" src={event.image} alt={event.name}
             className="absolute inset-0 object-contain transition-all duration-500"
-            style={{ width: '100%', height: '100%', filter: 'brightness(1.2) saturate(1.1)' }} loading="lazy"
+            style={{ width: '100%', height: '100%', filter: 'brightness(1.2) saturate(1.1)' }}
             onError={() => setImgError(true)} />
         ) : (
           <div className="absolute inset-0 rounded-full flex items-center justify-center"
